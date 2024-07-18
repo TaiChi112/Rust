@@ -1,10 +1,17 @@
-mod module1;
-mod module2;
 
-use module1::my_function;
-use module2::test_function;
 
 fn main() {
-    my_function();
-    test_function();
+    let mut amount:[i8;256] = [0;256];
+
+    for i in 0..256 {
+        amount[i] = i as i8;
+    }
+    fn array_length<T>(array: &[T]) -> usize {
+        let mut length = 0;
+        for _ in array {
+            length += 1;
+        }
+        length
+    }
+    println!("Length of the array is: {}", array_length(&amount));
 }
