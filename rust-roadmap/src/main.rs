@@ -1,44 +1,49 @@
-fn main() {
-    let mut items: Vec<String> = Vec::new();
-
-    create(&mut items, " 1 ".to_string());
-    create(&mut items, " 2 ".to_string());
-    create(&mut items, " 3 ".to_string());
-    
-    read(&items);
-
-    update(&mut items, 1, "112".to_string());
-    read(&items);
-
-    delete(&mut items, 2);
-    read(&items);
-
+mod func;
+use func::array;
+fn main(){
+    array::array();
 }
+// fn main() {
+//     let mut items: Vec<String> = Vec::new();
 
-fn create(items: &mut Vec<String>, new_item: String) {
-    items.push(new_item);
-}
+//     create(&mut items, " 1 ".to_string());
+//     create(&mut items, " 2 ".to_string());
+//     create(&mut items, " 3 ".to_string());
 
-fn read(items: &Vec<String>) {
-    for (index, item) in items.iter().enumerate() {
-        println!("Index: {}, item: {}", index, item);
-    }
-    println!("Length: {}", items.len());
-}
-fn update(items: &mut Vec<String>, index: usize, new_value: String) {
-    if let Some(item) = items.get_mut(index) {
-        *item = new_value;
-    } else {
-        println!("No item found at index {}", index);
-    }
-}
-fn delete(items: &mut Vec<String>, index: usize) {
-    if let Some(_) = items.get(index) {
-        items.remove(index);
-    } else {
-        println!("Index {} out of bounds", index);
-    }
-}
+//     read(&items);
+
+//     update(&mut items, 1, "112".to_string());
+//     read(&items);
+
+//     delete(&mut items, 2);
+//     read(&items);
+
+// }
+
+// fn create(items: &mut Vec<String>, new_item: String) {
+//     items.push(new_item);
+// }
+
+// fn read(items: &Vec<String>) {
+//     for (index, item) in items.iter().enumerate() {
+//         println!("Index: {}, item: {}", index, item);
+//     }
+//     println!("Length: {}", items.len());
+// }
+// fn update(items: &mut Vec<String>, index: usize, new_value: String) {
+//     if let Some(item) = items.get_mut(index) {
+//         *item = new_value;
+//     } else {
+//         println!("No item found at index {}", index);
+//     }
+// }
+// fn delete(items: &mut Vec<String>, index: usize) {
+//     if let Some(_) = items.get(index) {
+//         items.remove(index);
+//     } else {
+//         println!("Index {} out of bounds", index);
+//     }
+// }
 // mod utils;
 
 // use utils::{
