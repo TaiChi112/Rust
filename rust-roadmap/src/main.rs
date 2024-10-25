@@ -2,6 +2,8 @@
 #![allow(dead_code)]
 #![allow(unused_variables)]
 #![allow(unused_assignments)]
+#![allow(while_true)]
+#![allow(unreachable_code)]
 fn main() {
     let mut a1 = 1;
     // variable
@@ -69,8 +71,53 @@ fn main() {
         grade = "F";
     }
     println!("you are grade : {}", grade);
-    // let grade = if score >= 50 { "pass" } else { "fail" };
-    // println!("{}", grade);
+    let grade = if score >= 80 {
+        "A"
+    } else if score >= 70 {
+        "B"
+    } else if score >= 60 {
+        "C"
+    } else if score >= 50 {
+        "D"
+    } else {
+        "F"
+    };
+    println!("you are grade : {}", grade);
+
+    let result = if score >= 50 { "pass" } else { "fail" };
+    println!("{}", result);
+
+    let grade = if score >= 50 { "pass" } else { "fail" };
+    println!("{}", grade);
+
+    // loop
+
+    while true {
+        break;
+    }
+
+    'label1: loop {
+        'label2: loop {
+            break 'label1;
+            continue 'label2;
+        }
+    }
+
+    for i in 0..10{
+        println!("{}", i);
+    }
+    for i in 0..=10{
+        println!("{}", i);
+    }
+
+    let num1 = [10, 20, 30];
+    for i in num1.iter(){
+        println!("{}", i);
+    }
+
+    for i in [40,50,60].iter(){
+        println!("{}", i);
+    }
 }
 
 fn get_number() -> i32 {
