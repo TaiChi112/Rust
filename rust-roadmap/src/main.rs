@@ -4,11 +4,13 @@
 #![allow(unused_assignments)]
 #![allow(while_true)]
 #![allow(unreachable_code)]
-#![allow(special_module_name)]
+#![allow(unused_imports)]
 
+mod student;
+mod teacher;
+use student::Student;
+use teacher::Teacher;
 use std::collections::HashMap;
-mod lib;
-use lib::Student;
 fn main() {
     let mut a1 = 1;
     // variable
@@ -181,6 +183,7 @@ fn main() {
     println!("{} {}", x.name, x.age);
 
     let x = Student::new(112, "Alice".to_string());
+    x.hello();
     // let x = rust_roadmap::Student::new(112, "Alice".to_string());
 }
 
