@@ -4,6 +4,8 @@
 #![allow(unused_assignments)]
 #![allow(while_true)]
 #![allow(unreachable_code)]
+
+use std::collections::HashMap;
 fn main() {
     let mut a1 = 1;
     // variable
@@ -103,21 +105,65 @@ fn main() {
         }
     }
 
-    for i in 0..10{
+    for i in 0..10 {
         println!("{}", i);
     }
-    for i in 0..=10{
+    for i in 0..=10 {
         println!("{}", i);
     }
 
     let num1 = [10, 20, 30];
-    for i in num1.iter(){
+    for i in num1.iter() {
         println!("{}", i);
     }
 
-    for i in [40,50,60].iter(){
+    for i in [40, 50, 60].iter() {
         println!("{}", i);
     }
+
+    // loop array tuple
+    let m = [(1, 2, 3), (4, 5, 6), (7, 8, 9)];
+    for i in m.iter() {
+        println!("{}", i.0);
+        println!("{}", i.1);
+        println!("{}", i.2);
+    }
+
+    let m = [(1, 2), (3, 4)];
+    for (i, j) in m.iter() {
+        println!("tuple array : {} {}", i,j);
+    }
+
+    // String
+    let x = "Alice";// borrow string slice is keeping in stack
+    println!("{}", x);
+
+    let x = String::from("Charlie");
+    println!("{}", x);
+    let x = "My name's".to_string();// change string slice to real String
+
+    // Collection 
+    let mut x:Vec<i32> = Vec::new();
+    x.push(181);
+    x.push(99);
+    x.push(15);
+    let y = x.pop();
+
+    let mut x = vec![181, 99, 15];
+
+    //HashMap
+    let mut x:HashMap<&str,&str> = HashMap::new();
+    x.insert("name","Alice");
+    x.insert("age","19");
+    println!("{}", x.get("name").unwrap());
+    println!("{}", x.get("age").unwrap());
+
+    x.insert("th", "Thailand");
+    x.insert("us", "United States");
+
+    let y = x.get("th").unwrap();
+    // y.unwrap();
+    println!("{}", y);
 }
 
 fn get_number() -> i32 {
