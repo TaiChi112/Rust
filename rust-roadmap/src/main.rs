@@ -1,8 +1,28 @@
-mod func;
-use func::array;
-fn main(){
-    array::array();
+#![allow(unused_mut)]
+#![allow(dead_code)]
+fn main() {
+    // variable
+    let x = 10;
+    let mut y = 20;
+    println!("{}", x);
+    println!("{}", y);
+
+    y = 112;
+    println!("{}", y);
+    y = 118;
+    println!("{}", y);
+
+    let (a, b) = (99, 87);
+    println!("{}", a);
+    println!("{}", b);
+
+    const PI: f32 = 3.14;
 }
+// mod func;
+// use func::array;
+// fn main(){
+//     array::array();
+// }
 // fn main() {
 //     let mut items: Vec<String> = Vec::new();
 
