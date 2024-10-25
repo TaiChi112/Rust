@@ -4,8 +4,11 @@
 #![allow(unused_assignments)]
 #![allow(while_true)]
 #![allow(unreachable_code)]
+#![allow(special_module_name)]
 
 use std::collections::HashMap;
+mod lib;
+use lib::Student;
 fn main() {
     let mut a1 = 1;
     // variable
@@ -131,19 +134,19 @@ fn main() {
 
     let m = [(1, 2), (3, 4)];
     for (i, j) in m.iter() {
-        println!("tuple array : {} {}", i,j);
+        println!("tuple array : {} {}", i, j);
     }
 
     // String
-    let x = "Alice";// borrow string slice is keeping in stack
+    let x = "Alice"; // borrow string slice is keeping in stack
     println!("{}", x);
 
     let x = String::from("Charlie");
     println!("{}", x);
-    let x = "My name's".to_string();// change string slice to real String
+    let x = "My name's".to_string(); // change string slice to real String
 
-    // Collection 
-    let mut x:Vec<i32> = Vec::new();
+    // Collection
+    let mut x: Vec<i32> = Vec::new();
     x.push(181);
     x.push(99);
     x.push(15);
@@ -152,9 +155,9 @@ fn main() {
     let mut x = vec![181, 99, 15];
 
     //HashMap
-    let mut x:HashMap<&str,&str> = HashMap::new();
-    x.insert("name","Alice");
-    x.insert("age","19");
+    let mut x: HashMap<&str, &str> = HashMap::new();
+    x.insert("name", "Alice");
+    x.insert("age", "19");
     println!("{}", x.get("name").unwrap());
     println!("{}", x.get("age").unwrap());
 
@@ -164,6 +167,21 @@ fn main() {
     let y = x.get("th").unwrap();
     // y.unwrap();
     println!("{}", y);
+
+    //Struct
+    struct Person {
+        name: String,
+        age: u8,
+    }
+
+    let x = Person {
+        name: "Alice".to_string(),
+        age: 19,
+    };
+    println!("{} {}", x.name, x.age);
+
+    let x = Student::new(112, "Alice".to_string());
+    // let x = rust_roadmap::Student::new(112, "Alice".to_string());
 }
 
 fn get_number() -> i32 {
@@ -171,6 +189,7 @@ fn get_number() -> i32 {
     let y = 20;
     x + y
 }
+
 // mod func;
 // use func::array;
 // fn main(){
