@@ -1,6 +1,9 @@
 #![allow(unused_mut)]
 #![allow(dead_code)]
+#![allow(unused_variables)]
+#![allow(unused_assignments)]
 fn main() {
+    let mut a1 = 1;
     // variable
     let x = 10;
     let mut y = 20;
@@ -16,7 +19,64 @@ fn main() {
     println!("{}", a);
     println!("{}", b);
 
+    // constant
     const PI: f32 = 3.14;
+
+    // Tuple
+    let mut m = (112, 3.14, "Alice");
+    println!("{}", m.0);
+    println!("{}", m.1);
+    println!("{}", m.2);
+    m.0 = 113;
+    println!("{}", m.0);
+
+    let m: (u8, f64, i32) = (112, 3.14, 113); // memory in stack
+    println!("{}", m.0);
+    println!("{}", m.1);
+    println!("{}", m.2);
+
+    let a1 = m.0;
+    println!("{}", a1);
+
+    //Array
+    let x: [i32; 5] = [1, 2, 3, 4, 5];
+    println!("{}", x[0]);
+    println!("{}", x[1]);
+    println!("{}", x[2]);
+    println!("{}", x[3]);
+    println!("{}", x[4]);
+    let x = [1, 2, 3, 4, 5];
+
+    let x = [112; 5]; // duplicate data of array
+    println!("{}", x[0]);
+    println!("{}", x[1]);
+    println!("{}", x[2]);
+    println!("{}", x[3]);
+    println!("{}", x[4]);
+
+    // condition statement if else
+    let score = 50;
+    let mut grade = "";
+    if score >= 80 {
+        grade = "A";
+    } else if score >= 70 {
+        grade = "B";
+    } else if score >= 60 {
+        grade = "C";
+    } else if score >= 50 {
+        grade = "D";
+    } else {
+        grade = "F";
+    }
+    println!("you are grade : {}", grade);
+    // let grade = if score >= 50 { "pass" } else { "fail" };
+    // println!("{}", grade);
+}
+
+fn get_number() -> i32 {
+    let x = 10;
+    let y = 20;
+    x + y
 }
 // mod func;
 // use func::array;
