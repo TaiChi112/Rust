@@ -12,7 +12,6 @@ use student::Student;
 use teacher::Teacher;
 use std::collections::HashMap;
 fn main() {
-    let mut a1 = 1;
     // variable
     let x = 10;
     let mut y = 20;
