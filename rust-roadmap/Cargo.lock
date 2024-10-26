@@ -3,5 +3,5 @@
 version = 3
 
 [[package]]
-name = "rust-roadmap"
+name = "rust_roadmap"
 version = "0.1.0"
