@@ -34,7 +34,12 @@ fn main() {
         // Colors::Blue => println!("Blue"),
         _ => println!("Unknown"),
     }
-
+    let a1 = Colors::Blue;
+    let a2 = Colors::Yellow;
+    match (a1, a2) {
+        (Colors::Blue, Colors::Yellow) => println!("Blue & Yellow"),
+        _ => println!("Not Blue & Yellow"),
+    }
     // let y = Colors::Blue;
     // let mut z = "";
     // match y {
@@ -105,10 +110,16 @@ fn main() {
     // let add = |x: i32, y: i32| x + y;
 
     let yy1 = cal(10, 40, yy);
+    println!("{}", yy1);
 
     let yy2 = cal(10, 40, |a, b| a - b);
+    println!("{}", yy2);
 
     let yy3 = cal(10, 90, add);
+    println!("{}", yy3);
+
+    let yy4 = cal2(10, 90, |a, b| a * b);
+    println!("{}", yy4);
 }
 fn cal<F: Fn(i32, i32) -> i32>(a: i32, b: i32, f: F) -> i32 {
     f(a, b)
