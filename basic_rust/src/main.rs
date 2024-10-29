@@ -19,7 +19,6 @@ impl Person2 {
         }
     }
 }
-struct Person3;
 fn main() {
     let p1 = Person1::new(1, "Alice".to_string());
     println!("id: {}, name: {}", p1.id, p1.name);
@@ -32,6 +31,4 @@ fn main() {
 
     let p21 = Person2::new(Some(3), Some("Charlie".to_string()));
     println!("id: {}, name: {}", p21.id, p21.name);
-
-    let p3 = Person3;
 }
