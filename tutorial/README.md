@@ -57,10 +57,16 @@
     let s2 = s1; // ownership transferred to s2
 ```
 
-- reference var declaration
+- reference variable declaration
 ```rs
     let x = 5;
     let y = &x; // immutable reference
     let mut z = 10;
     let w = &mut z; // mutable reference
+```
+
+- Using _ to ignore values
+```rs
+    let _ = 42; // ignore value
+    let _temp = 112; // unused variable
 ```
