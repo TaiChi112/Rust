@@ -43,3 +43,10 @@
     let mut x:u32;
     x = 112; // initialization before use
 ```
+
+- scoped variable declaration
+```rs
+    {
+        let scoped_var = 42; // only accessible inside this block
+    }
+``` 
