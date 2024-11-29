@@ -31,3 +31,9 @@
 ```rs
     static GREETING:&str = "Hello, Rust";
 ```
+
+- shadowing variable
+```rs
+    let x = 5;
+    let x = x + 1; // shadows the previous `x`
+```
