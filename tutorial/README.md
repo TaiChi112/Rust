@@ -81,3 +81,8 @@
 ```rs
     let value:i32 = Default:default(); // default is 0 for i32
 ```
+
+- using let with Loops
+```rs
+    let counter = (0..112).collect::<Vec<_>>(); // collect values in a loop
+```
