@@ -65,8 +65,14 @@
     let w = &mut z; // mutable reference
 ```
 
-- Using _ to ignore values
+- using _ to ignore values
 ```rs
     let _ = 42; // ignore value
     let _temp = 112; // unused variable
 ```
+
+- array and vector declaration
+```rs 
+    let array = [1,2,4];
+    let vector = vec![1,1,2];
+``` 
