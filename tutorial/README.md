@@ -26,3 +26,8 @@
 ```rs
     const MAX_POINTS: u32 = 112_112;
 ```
+
+- static variable declaration
+```rs
+    static GREETING:&str = "Hello, Rust";
+```
