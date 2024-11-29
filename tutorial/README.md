@@ -56,3 +56,11 @@
     let s1 = String::from("Rust");
     let s2 = s1; // ownership transferred to s2
 ```
+
+- reference var declaration
+```rs
+    let x = 5;
+    let y = &x; // immutable reference
+    let mut z = 10;
+    let w = &mut z; // mutable reference
+```
