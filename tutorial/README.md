@@ -76,3 +76,8 @@
     let array = [1,2,4];
     let vector = vec![1,1,2];
 ``` 
+
+- default-initiated variable
+```rs
+    let value:i32 = Default:default(); // default is 0 for i32
+```
