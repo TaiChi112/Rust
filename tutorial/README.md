@@ -37,3 +37,9 @@
     let x = 5;
     let x = x + 1; // shadows the previous `x`
 ```
+
+- uninitialized variable declaration (with default)
+```rs
+    let mut x:u32;
+    x = 112; // initialization before use
+```
