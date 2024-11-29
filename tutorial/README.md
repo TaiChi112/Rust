@@ -50,3 +50,9 @@
         let scoped_var = 42; // only accessible inside this block
     }
 ``` 
+
+- variable declaration with ownership transfer
+```rs
+    let s1 = String::from("Rust");
+    let s2 = s1; // ownership transferred to s2
+```
