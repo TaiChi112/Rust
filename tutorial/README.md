@@ -16,9 +16,13 @@
     let z:f64 = 3.14; // explicit type annotation
 ```
 
-- destructuring declaration
+- destructuring variable declaration
 ```rs
     let (a,b) = (112,113); // destructure tuple
     let Point {x,y} = Point {x:5,y:10};
 ```
 
+- constant variable declaration
+```rs
+    const MAX_POINTS: u32 = 112_112;
+```
