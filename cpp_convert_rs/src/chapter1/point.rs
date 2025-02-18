@@ -1,8 +1,12 @@
+#[derive(Default)]
 pub struct Point {
     x: i8,
     y: i8,
 }
 impl Point {
+    pub fn default() -> Self {
+        Point { x: 0, y: 0 }
+    }
     pub fn new(x: i8, y: i8) -> Self {
         Point { x, y }
     }
@@ -20,5 +24,10 @@ impl Point {
     }
     pub fn show(&self) {
         println!("x:{},y:{}", self.x, self.y);
+    }
+}
+impl Drop for Point {
+    fn drop(&mut self) {
+        println!("Point is dropped at x:{},y:{}", self.x, self.y);
     }
 }
