@@ -1,10 +1,19 @@
-use std::io;
-fn main() {
-    println!("Guess the number!");
-    println!("Please input your guess.");
-    let mut guess = String::new();
-    io::stdin()
-        .read_line(&mut guess)
-        .expect("msg: Failed to read line");
-    println!("You guessed: {}", guess);
+struct Point{
+    x: i32,
+    y: i32
+}
+impl Point{
+    fn new(x: i32, y: i32) -> Point{
+        Point{x: x, y: y}
+    }
+    fn distance(&self, other: &Point) -> f64{
+        let x_squared = (self.x - other.x) * (self.x - other.x);
+        let y_squared = (self.y - other.y) * (self.y - other.y);
+        ((x_squared + y_squared) as f64).sqrt()
+    }
+}
+fn main(){
+    let p1 = Point::new(1, 2);
+    let p2 = Point::new(3, 4);
+    println!("Distance: {}", p1.distance(&p2));
 }
