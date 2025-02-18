@@ -1,16 +1,34 @@
 pub struct Point {
+    name: String,
     x: i8,
     y: i8,
 }
 impl Point {
-    pub fn new(x: i8, y: i8) -> Self {
-        Point { x, y }
+    pub fn default() -> Self {
+        Point {
+            name: "Origin".to_string(),
+            x: 0,
+            y: 0,
+        }
+    }
+    pub fn new(name: &str, x: i8, y: i8) -> Self {
+        Point {
+            name: name.to_string(),
+            x,
+            y,
+        }
+    }
+    pub fn get_name(&self) -> &str {
+        &self.name
     }
     pub fn get_x(&self) -> i8 {
         self.x
     }
     pub fn get_y(&self) -> i8 {
         self.y
+    }
+    pub fn set_name(&mut self, name: &str) {
+        self.name = name.to_string();
     }
     pub fn set_x(&mut self, x: i8) {
         self.x = x;
@@ -19,6 +37,11 @@ impl Point {
         self.y = y;
     }
     pub fn show(&self) {
-        println!("x:{},y:{}", self.x, self.y);
+        println!("Point: {} ({}, {})", self.name, self.x, self.y);
+    }
+}
+impl Drop for Point {
+    fn drop(&mut self) {
+        println!("Dropping Point: {}", self.name);
     }
 }
