@@ -3,6 +3,12 @@ pub struct Rectangle {
     height: i8,
 }
 impl Rectangle{
+    pub fn default() -> Self{
+        Rectangle{
+            width: 0,
+            height: 0,
+        }
+    }
     pub fn new(width: i8, height: i8) -> Self{
         Rectangle{
             width,
