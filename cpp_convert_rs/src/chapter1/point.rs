@@ -39,6 +39,16 @@ impl Point {
     pub fn show(&self) {
         println!("Point: {} ({}, {})", self.name, self.x, self.y);
     }
+    pub fn dot_product(&self, other: &Point) -> i8 {
+        self.x * other.x + self.y * other.y
+    }
+    pub fn mid_point(&self, other: &Point) -> Point {
+        Point {
+            name: "Midpoint".to_string(),
+            x: (self.x + other.x) / 2,
+            y: (self.y + other.y) / 2,
+        }
+    }
 }
 impl Drop for Point {
     fn drop(&mut self) {
