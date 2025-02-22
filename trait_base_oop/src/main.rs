@@ -122,6 +122,81 @@ impl Stack {
         self.capacity
     }
 }
+struct Queue {
+    queue: Vec<i32>,
+}
+impl Queue {
+    fn new() -> Queue {
+        Queue { queue: Vec::new() }
+    }
+    fn enqueue(&mut self, value: i32) {
+        self.queue.push(value);
+    }
+    fn dequeue(&mut self) -> Option<i32> {
+        if self.queue.is_empty() {
+            None
+        } else {
+            Some(self.queue.remove(0))
+        }
+    }
+    fn front(&self) -> Option<i32> {
+        if self.queue.is_empty() {
+            None
+        } else {
+            Some(self.queue[0])
+        }
+    }
+    fn is_empty(&self) -> bool {
+        self.queue.is_empty()
+    }
+    fn size(&self) -> usize {
+        self.queue.len()
+    }
+    fn display(&self) {
+        println!("Queue: {:?}", self.queue);
+    }
+}
+struct Node{
+    data: i32,
+    next: Option<Box<Node>>,
+}
+impl Node{
+    fn new(data: i32) -> Node{
+        Node{
+            data,
+            next: None,
+        }
+    }
+}
+struct LinkedList{
+    head: Option<Box<Node>>,
+}
+impl LinkedList{
+    fn new() -> LinkedList{
+        LinkedList{
+            head: None,
+        }
+    }
+    fn insert(&mut self, data: i32){
+        let mut new_node = Box::new(Node::new(data));
+        match self.head.take(){
+            Some(old_node) => {
+                new_node.next = Some(old_node);
+                self.head = Some(new_node);
+            }
+            None => {
+                self.head = Some(new_node);
+            }
+        }
+    }
+    fn display(&self){
+        let mut current = &self.head;
+        while let Some(node) = current{
+            println!("{}", node.data);
+            current = &node.next;
+        }
+    }
+}
 fn main() {
     let p1 = Point::new(10, 20);
     p1.display();
@@ -153,4 +228,20 @@ fn main() {
     println!("Stack is full: {}", s1.is_full());
     println!("Stack is pop: {:?}", s1.pop());
     s1.display();
+
+    let mut q1 = Queue::new();
+    q1.enqueue(10);
+    q1.enqueue(20);
+    q1.enqueue(30);
+    println!("Queue size: {}", q1.size());
+    println!("Queue front: {:?}", q1.front());
+    println!("Queue is empty: {}", q1.is_empty());
+    println!("Queue is dequeue: {:?}", q1.dequeue());
+    q1.display();
+
+    let mut ll1 = LinkedList::new();
+    ll1.insert(10);
+    ll1.insert(20);
+    ll1.insert(30);
+    ll1.display();
 }
