@@ -156,30 +156,25 @@ impl Queue {
         println!("Queue: {:?}", self.queue);
     }
 }
-struct Node{
+struct Node {
     data: i32,
     next: Option<Box<Node>>,
 }
-impl Node{
-    fn new(data: i32) -> Node{
-        Node{
-            data,
-            next: None,
-        }
+impl Node {
+    fn new(data: i32) -> Node {
+        Node { data, next: None }
     }
 }
-struct LinkedList{
+struct LinkedList {
     head: Option<Box<Node>>,
 }
-impl LinkedList{
-    fn new() -> LinkedList{
-        LinkedList{
-            head: None,
-        }
+impl LinkedList {
+    fn new() -> LinkedList {
+        LinkedList { head: None }
     }
-    fn insert(&mut self, data: i32){
+    fn insert(&mut self, data: i32) {
         let mut new_node = Box::new(Node::new(data));
-        match self.head.take(){
+        match self.head.take() {
             Some(old_node) => {
                 new_node.next = Some(old_node);
                 self.head = Some(new_node);
@@ -189,14 +184,15 @@ impl LinkedList{
             }
         }
     }
-    fn display(&self){
+    fn display(&self) {
         let mut current = &self.head;
-        while let Some(node) = current{
+        while let Some(node) = current {
             println!("{}", node.data);
             current = &node.next;
         }
     }
 }
+use trait_base_oop::book::Book;
 fn main() {
     let p1 = Point::new(10, 20);
     p1.display();
@@ -244,4 +240,12 @@ fn main() {
     ll1.insert(20);
     ll1.insert(30);
     ll1.display();
+
+    let b1 = Book::new(
+        "Rust Programming".to_string(),
+        "John Doe".to_string(),
+        300,
+        54.99,
+    );
+    b1.display();
 }
