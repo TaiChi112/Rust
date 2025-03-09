@@ -10,7 +10,7 @@ pub struct Student {
 // }
 impl Student {
     pub fn new(id: u8, name: String) -> Self {
-        Self { id: id, name: name }
+        Self { id, name }
     }
     // pub fn hello() {
     //     println!("Hello {}", self.name);
