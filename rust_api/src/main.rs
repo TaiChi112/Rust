@@ -5,11 +5,12 @@ use tokio::net::TcpListener;
 
 #[tokio::main]
 async fn main() {
+    let port = 3000;
     let app = Router::new()
     .route("/submit", post(handle_post))
     .route("/point", post(handle_post_point));
 
-    let addr = SocketAddr::from(([127, 0, 0, 1], 3000));
+    let addr = SocketAddr::from(([127, 0, 0, 1], port));
 
     println!("🚀 Server running at http://{}", addr);
 
