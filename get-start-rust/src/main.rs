@@ -5,7 +5,7 @@ struct Point {
 }
 impl Point {
     fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
+        Point { x, y }
     }
     fn distance(&self, other: &Point) -> f64 {
         let x_squared = (self.x - other.x) * (self.x - other.x);
@@ -20,8 +20,8 @@ struct Line {
 impl Line {
     fn new(start: Point, end: Point) -> Line {
         Line {
-            start: start,
-            end: end,
+            start,
+            end,
         }
     }
 }
@@ -33,7 +33,7 @@ impl Person {
     fn new(name: &str, age: u32) -> Person {
         Self {
             name: name.to_string(),
-            age: age,
+            age,
         }
     }
     fn introduce(&self) {
