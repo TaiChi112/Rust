@@ -56,6 +56,6 @@ impl Drive for Bicycle {
         println!("The bicycle has driven {} miles", distance);
     }
 }
-fn move_vehicle(vehicle: &dyn Drive, distance: u32) {
+pub fn move_vehicle(vehicle: &dyn Drive, distance: u32) {
     vehicle.drive(distance);
 }
