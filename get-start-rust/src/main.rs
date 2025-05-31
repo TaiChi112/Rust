@@ -1,30 +1,32 @@
-// encapsulation
-struct Point {
-    x: i32,
-    y: i32,
-}
-impl Point {
-    fn new(x: i32, y: i32) -> Point {
-        Point { x: x, y: y }
-    }
-    fn distance(&self, other: &Point) -> f64 {
-        let x_squared = (self.x - other.x) * (self.x - other.x);
-        let y_squared = (self.y - other.y) * (self.y - other.y);
-        ((x_squared + y_squared) as f64).sqrt()
-    }
-}
-struct Line {
-    start: Point,
-    end: Point,
-}
-impl Line {
-    fn new(start: Point, end: Point) -> Line {
-        Line {
-            start: start,
-            end: end,
-        }
-    }
-}
+// // encapsulation
+// struct Point {
+//     x: i32,
+//     y: i32,
+// }
+// impl Point {
+//     fn new(x: i32, y: i32) -> Point {
+//         Point { x: x, y: y }
+//     }
+//     fn distance(&self, other: &Point) -> f64 {
+//         let x_squared = (self.x - other.x) * (self.x - other.x);
+//         let y_squared = (self.y - other.y) * (self.y - other.y);
+//         ((x_squared + y_squared) as f64).sqrt()
+//     }
+// }
+
+// struct Line {
+//     start: Point,
+//     end: Point,
+// }
+// impl Line {
+//     fn new(start: Point, end: Point) -> Line {
+//         Line {
+//             start: start,
+//             end: end,
+//         }
+//     }
+// }
+
 struct Person {
     name: String,
     age: u32,
@@ -40,7 +42,6 @@ impl Person {
         println!("Name: {}, Age: {}", self.name, self.age);
     }
 }
-
 // inheritance
 trait Shape {
     fn area(&self) -> f64;
@@ -97,17 +98,25 @@ impl Animal for Cat {
         println!("Meow!");
     }
 }
- 
+
+use get_start_rust::point::Point;
+use get_start_rust::model::student::Student;
+use get_start_rust::util::address::Address;
+
 fn main() {
-    let p1 = Point::new(1, 2);
-    let p2 = Point::new(3, 4);
+    let addr = Address::new(
+        "123 Main St".to_string(),
+        "Springfield".to_string(),
+        "IL".to_string(),
+        "62701".to_string(),
+    );
+    addr.display();
+    let s = Student::new(1, "Alice".to_string(), 20);
+    s.introduce();
+
+    let p1 = Point::new(3, 4);
+    let p2 = Point::new(6, 8);
     println!("Distance: {}", p1.distance(&p2));
-
-    let l1 = Line::new(p1, p2);
-    println!("Distance: {}", l1.start.distance(&l1.end));
-
-    let p = Person::new("John", 25);
-    p.introduce();
 
     let c = Circle { radius: 5.0 };
     let r = Rectangle {
@@ -128,4 +137,6 @@ fn main() {
     for animal in animals {
         animal.make_sound();
     }
+    let p = Person::new("Alice", 30);
+    p.introduce();
 }
