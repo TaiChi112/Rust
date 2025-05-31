@@ -1,31 +1,3 @@
-// // encapsulation
-// struct Point {
-//     x: i32,
-//     y: i32,
-// }
-// impl Point {
-//     fn new(x: i32, y: i32) -> Point {
-//         Point { x: x, y: y }
-//     }
-//     fn distance(&self, other: &Point) -> f64 {
-//         let x_squared = (self.x - other.x) * (self.x - other.x);
-//         let y_squared = (self.y - other.y) * (self.y - other.y);
-//         ((x_squared + y_squared) as f64).sqrt()
-//     }
-// }
-
-// struct Line {
-//     start: Point,
-//     end: Point,
-// }
-// impl Line {
-//     fn new(start: Point, end: Point) -> Line {
-//         Line {
-//             start: start,
-//             end: end,
-//         }
-//     }
-// }
 
 struct Person {
     name: String,
@@ -35,7 +7,7 @@ impl Person {
     fn new(name: &str, age: u32) -> Person {
         Self {
             name: name.to_string(),
-            age: age,
+            age,
         }
     }
     fn introduce(&self) {
