@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Wasm Demo</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        #output { margin-top: 20px; font-size: 18px; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Hello from JavaScript & Rust!</h1>
+    <button id="greetButton">Click to Greet from Rust</button>
+    <div id="output"></div>
+
+    <script type="module">
+        // ต้องเปลี่ยน 'my-project' เป็นชื่อ package.name ใน Cargo.toml ของคุณ
+        // npm จะจัดการ path ให้เอง
+        import init, { greet } from 'my-project'; // my-project คือชื่อ package ของคุณ
+
+        async function run() {
+            await init(); // นี่คือการ initialize WebAssembly module
+
+            const greetButton = document.getElementById('greetButton');
+            const outputDiv = document.getElementById('output');
+
+            greetButton.addEventListener('click', () => {
+                outputDiv.textContent = "Checking console for Rust greeting...";
+                greet(); // เรียกใช้ฟังก์ชัน Rust 'greet'
+                console.log("Rust function 'greet' called. Check browser console.");
+            });
+        }
+
+        run();
+    </script>
+</body>
+</html>
