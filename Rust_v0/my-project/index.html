@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rust Wasm with Trunk</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 100vh; margin: 0; background-color: #f0f0f0; }
+        h1 { color: #333; }
+        button { padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px; }
+        button:hover { background-color: #0056b3; }
+        #output { margin-top: 20px; font-size: 18px; color: #555; }
+    </style>
+</head>
+<body>
+    <h1>Hello from Rust (via Trunk)!</h1>
+    <button id="greetButton">Click to Greet from Rust</button>
+    <div id="output"></div>
+
+    <script type="module" data-trunk rel="rust" src="src/lib.rs"></script>
+
+    <script type="module">
+        // หลังจากที่ Trunk โหลด wasm-bindgen และ module ให้เราแล้ว
+        // เราสามารถเรียกใช้ฟังก์ชันที่ export ได้เลย
+        // (ชื่อฟังก์ชันจะมาจาก src/lib.rs)
+
+        // ต้องรอให้ WebAssembly โหลดเสร็จก่อน
+        window.onload = async () => {
+            const greetButton = document.getElementById('greetButton');
+            const outputDiv = document.getElementById('output');
+
+            greetButton.addEventListener('click', () => {
+                outputDiv.textContent = "Checking console for Rust greeting...";
+                // เข้าถึงฟังก์ชัน greet() ที่ถูก export จาก Rust ได้โดยตรง
+                // เพราะ Trunk ได้จัดการ import ให้แล้ว
+                try {
+                    greet(); // เรียกใช้ฟังก์ชัน greet จาก Rust
+                    console.log("Rust function 'greet' called. Check browser console.");
+                } catch (e) {
+                    console.error("Error calling Rust greet function:", e);
+                    outputDiv.textContent = `Error: ${e.message}. See console.`;
+                }
+            });
+        };
+    </script>
+</body>
+</html>
